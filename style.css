@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(245, 245, 245);
+}
+
+.flex-container {
+    margin-top: 132px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.sub1 {
+    width: 580px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;   /* stack children vertically */
+    justify-content: center;
+}
+
+.sub2 {
+    width: 400px;
+    height: 364px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sub1 h1 {
+    font-size: 64px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(19, 93, 253);
+}
+
+.sub1 p {
+    width: 80%;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+    margin: 16px;
+    margin-bottom: 0;
+}
+
+input {
+    width: 100%;
+    height: 54px;
+    margin-bottom: 16px;
+    padding-left: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgb(144, 148, 156); 
+}
+
+#username {
+    border: 1px solid gray;
+    border-color: rgb(204, 208, 213);
+    font-size: 17px;
+    box-shadow: inset 0 1.5px 0 rgb(239, 239, 239);
+}
+
+#username:focus {
+    border: 1px solid#1877f2;        
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+
+#password {
+    border: 1px solid gray;
+    border-color: rgb(204, 208, 213);
+    font-size: 17px;
+    box-shadow: inset 0 1.5px 0 rgb(239, 239, 239);
+}
+
+#password:focus {
+    border: 1px solid#1877f2;   
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);     
+}
+
+#login {
+    border: 0;
+    color: rgb(255, 255, 255);
+    background-color: rgb(19, 93, 253);
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#fgpass {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: rgb(19, 93, 253);
+}
+
+hr {
+    margin: 22px;
+    margin-bottom: 40px;
+    border: none;                       
+    height: 0.1px;                      
+    background-color: rgb(204, 208, 213);
+}
+
+#create {
+    color: rgb(255, 255, 255);
+    background-color: rgb(48, 184, 7);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.sub2 p{
+    padding-top: 64px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.sub2 a{
+    padding-top: 64px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+footer {
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+}
+
+
