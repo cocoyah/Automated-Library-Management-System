@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library System</title>
+  <link rel="stylesheet" href="navbar.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+
+    <!-- Profile Section -->
+    <div class="profile">
+      <img src="https://imgs.search.brave.com/O4CxvN9pyMxlIswesV6J36rjpEA76oFWb5nOamX68y8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtY3NlLmNhbnZh/LmNvbS9ibG9iLzIx/NDc4MjIvMTYwMHct/Qi1jUnlvaDdiOTgu/anBn" alt="Profile">
+      <h3>Kelvin Fulgencio</h3>
+      <p>Librarian</p>
+    </div>
+
+    <!-- Navigation Menu -->
+    <ul class="menu">
+      <li><a href="#"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="#"><i class="fas fa-book"></i><span>Books</span></a></li>
+      <li><a href="#"><i class="fas fa-users"></i><span>Borrowers</span></a></li>
+      <li><a href="#"><i class="fas fa-file-alt"></i><span>Transactions</span></a></li>
+      <li><a href="#"><i class="fas fa-chart-bar"></i><span>Reports</span></a></li>
+      <li><a href="#"><i class="fas fa-user"></i><span>My Account</span></a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Top Menu Bar -->
+    <div class="topbar">
+      <i class="fas fa-bars" id="menu-toggle"></i>
+      <h1>Menu</h1>
+      <img src="fcpc-logo.png" alt="fcpc-logo">
+    </div>
+  </div>
+
+  <script>
+    // Sidebar toggle
+    const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.getElementById("menu-toggle");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("collapsed");
+    });
+  </script>
+</body>
+</html>
