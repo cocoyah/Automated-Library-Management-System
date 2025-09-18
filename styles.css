@@ -1,0 +1,157 @@
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 5px 20px;
+  margin: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.topbar-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* ---------- Layout ---------- */
+.page { padding: 0 12px 24px; }
+
+.section { margin-top: 6px; }
+.section-title {
+  color: #1d2a7a;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 10px 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* ---------- Quick Stats ---------- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 0 6px 10px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+.stat-icon { font-size: 40px; line-height: 1; }
+.icon-yellow { color: #ffbf00; }
+.icon-blue   { color: #0b1e67; }
+.icon-red    { color: #e53935; }
+
+.stat-label { margin: 0 0 4px 0; font-size: .95rem; }
+.stat-value {
+  margin: 0;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: .5px;
+}
+.value-yellow, .value-blue, .value-red { color: #0b1e67; }
+
+/* ---------- Panels & Tables ---------- */
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.15);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Left column fixed height blocks */
+.column-left .panel {
+  height: 260px;   /* Both tables same height */
+}
+
+/* Table scrolling */
+.table-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table thead th {
+  background: #9a9a9a;
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 8px;      /* Reduced padding */
+  font-size: 0.95rem;    /* Slightly smaller font */
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.data-table tbody td {
+  padding: 6px 8px;      /* Reduced padding */
+  font-size: 0.95rem;    /* Slightly smaller font */
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+.data-table tbody tr:nth-child(even) td { background: #f7f7f7; }
+
+/* Status colors */
+.status.borrowed { color: #0b1e67; font-weight: 700; }
+.status.returned { color: #f0b323; font-weight: 700; }
+
+/* ---------- Right column (charts) ---------- */
+.column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-title {
+  margin: 4px 6px 1px;
+  color: #333;
+}
+
+/* Make each chart panel equal height */
+.chart-card {
+  height: 170px;
+  display: flex;
+  flex-direction: stretch;
+  overflow: hidden;      /* Prevent chart overflow */
+  margin-bottom: 0;      /* Remove extra margin if any */
+}
+.chart-card canvas {
+  flex: 1;
+  max-height: 140px !important;
+  margin: auto;          /* Center canvas vertically/horizontally */
+  display: block;
+}

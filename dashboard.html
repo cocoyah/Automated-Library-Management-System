@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Dashboard</title>
+
+  <!-- IMPORTANT: file name is styles.css (plural) -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Chart.js for the 3 charts on the right -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="hamburger" aria-label="Open menu">☰</button>
+    <h1 class="topbar-title">Home</h1>
+  </header>
+
+  <main class="page">
+    <!-- Quick Stats -->
+    <section class="section">
+      <h2 class="section-title">Quick Stats</h2>
+      <div class="stats-row">
+        <!-- Total Books -->
+        <article class="stat-card">
+          <div class="stat-icon icon-yellow"><img src="libooks.png" alt="Books Icon" class="icon-image"></div>
+          <div class="stat-meta">
+            <p class="stat-label">Total Books</p>
+            <p class="stat-value value-yellow" id="totalBooks">0</p>
+          </div>
+        </article>
+        <!-- Books Borrowed -->
+        <article class="stat-card">
+          <div class="stat-icon icon-blue"><img src="book.png" alt="Books Icon 2" class="icon-image"></div>
+          <div class="stat-meta">
+            <p class="stat-label">Books Borrowed</p>
+            <p class="stat-value value-blue" id="booksBorrowed">0</p>
+          </div>
+        </article>
+        <!-- Overdue Books -->
+        <article class="stat-card">
+          <div class="stat-icon icon-red"><img src="clock.png" alt="Clock" class="icon-image"></div>
+          <div class="stat-meta">
+            <p class="stat-label">Overdue Books</p>
+            <p class="stat-value value-red" id="overdueBooks">0</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Two-column content -->
+    <div class="grid">
+      <!-- LEFT COLUMN -->
+      <section class="column-left">
+        <!-- Recent Activity -->
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="panel">
+          <div class="table-scroll">
+            <table class="data-table" id="recentActivityTable">
+              <thead>
+                <tr>
+                  <th>Borrower</th>
+                  <th>Accession No.</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Rows will be injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Due Books -->
+        <h2 class="section-title">Due Books</h2>
+        <div class="panel">
+          <div class="table-scroll">
+            <table class="data-table" id="dueBooksTable">
+              <thead>
+                <tr>
+                  <th>Accession No.</th>
+                  <th>Title</th>
+                  <th>Borrower</th>
+                  <th>Contact Number</th>
+                  <th>Due Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Rows will be injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="column-right">
+        <h2 class="section-title">Statistics</h2>
+
+        <div class="panel chart-card">
+          <h3 class="chart-title">Frequently Borrowed Books</h3>
+          <canvas id="barChart" height="140"></canvas>
+        </div>
+
+        <div class="panel chart-card">
+          <h3 class="chart-title">Frequency of Borrowers per Program</h3>
+          <canvas id="pieChartProgram" height="180"></canvas>
+        </div>
+
+        <div class="panel chart-card">
+          <h3 class="chart-title">Frequency of Borrowers per Department</h3>
+          <canvas id="pieChartDepartment" height="180"></canvas>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Your existing JS (leave filename as scripts.js exactly) -->
+  <script src="./scripts.js"></script>
+</body>
+</html>
