@@ -13,14 +13,23 @@ body {
 
 /* ===== Sidebar ===== */
 .sidebar {
-  width: 250px;
-  height: 100vh;
-  background: rgb(3, 3, 111); /* Blue background */
+  position: fixed;       
+  top: 0;
+  left: 0;
+  width: 250px;          
+  height: 100vh;         
+  background: rgb(3, 3, 111);;   
   color: white;
-  display: flex;
-  flex-direction: column;
-  transition: width 0.3s;
-  overflow: hidden;
+  overflow-y: auto;      
+}
+
+.sidebar {
+  scrollbar-width: none;   
+  -ms-overflow-style: none; 
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;           
 }
 
 .logo {
@@ -86,6 +95,10 @@ body {
   background: #1a2a7a;
 }
 
+.sidebar .menu li a:hover span {
+  color: #ffcc00; 
+}
+
 /* Collapsed state */
 .sidebar.collapsed .logo h4,
 .sidebar.collapsed .logo p,
@@ -103,6 +116,9 @@ body {
 /* ===== Topbar ===== */
 .main {
   flex: 1;
+  margin-left: 250px;    /* push content aside from sidebar */
+  min-height: 100vh;
+  background: #f4f4f9;   /* light background */
 }
 
 .topbar {
@@ -130,3 +146,51 @@ body {
     right: 1%;
 }
 
+/* ====== Dropdown styles ====== */
+.menu .dropdown {
+  position: relative;
+}
+
+.menu .dropdown .submenu {
+  display: none;
+  list-style: none;
+  padding-left: 20px;
+  margin: 5px 0;
+}
+
+.menu .dropdown .submenu li {
+  margin: 5px 0;
+}
+
+.menu .dropdown .submenu i {
+    font-size: 16px;
+}
+
+.menu .dropdown .submenu a {
+  display: block;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.menu .dropdown .submenu a:hover {
+  background: #1a2a7a;
+  border-radius: 5px;
+}
+
+.menu .dropdown .submenu a:hover span {
+    color: #ffcc00;
+}
+
+.menu .dropdown .submenu.open {
+  display: block;
+}
+
+.menu .dropdown .caret {
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+
+.menu .dropdown .submenu.open ~ .caret {
+  transform: rotate(180deg);
+}
