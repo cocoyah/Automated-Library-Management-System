@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Library System</title>
-  <link rel="stylesheet" href="navbar.css">
-  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="books.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
 
-    <!-- Profile Section -->
     <div class="profile">
-      <img src="https://imgs.search.brave.com/O4CxvN9pyMxlIswesV6J36rjpEA76oFWb5nOamX68y8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtY3NlLmNhbnZh/LmNvbS9ibG9iLzIx/NDc4MjIvMTYwMHct/Qi1jUnlvaDdiOTgu/anBn" alt="Profile">
+      <img
+        src="https://imgs.search.brave.com/O4CxvN9pyMxlIswesV6J36rjpEA76oFWb5nOamX68y8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtY3NlLmNhbnZh/LmNvbS9ibG9iLzIx/NDc4MjIvMTYwMHct/Qi1jUnlvaDdiOTgu/anBn"
+        alt="Profile">
       <h3>Kelvin Fulgencio</h3>
       <p>Librarian</p>
     </div>
 
-    <!-- Navigation Menu -->
     <ul class="menu">
       <li><a href="#"><i class="fas fa-home"></i><span>Home</span></a></li>
       <li><a href="#"><i class="fas fa-book"></i><span>Books</span></a></li>
       <li><a href="#"><i class="fas fa-users"></i><span>Borrowers</span></a></li>
       <li><a href="#"><i class="fas fa-file-alt"></i><span>Transactions</span></a></li>
       <li><a href="#"><i class="fas fa-chart-bar"></i><span>Reports</span></a></li>
-      <li><a href="#"><i class="fas fa-user"></i><span>My Account</span></a></li>
+
+      <li class="dropdown">
+        <a href="account.html" id="account-toggle"><i class="fas fa-user"></i><span>Account</span><i
+            class="fas fa-caret-down caret"></i></a>
+        <ul class="submenu" id="account-submenu">
+          <li><a href="account.html"><i class="fas fa-id-badge"></i><span>Profile</span></a></li>
+          <li><a href="change_pass.html"><i class="fas fa-key"></i><span>Change Password</span></a></li>
+        </ul>
+      </li>
+
       <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
     </ul>
   </div>
 
-  <!-- Main Content Wrapper -->
   <div class="main">
-    <!-- Top Menu Bar -->
     <div class="topbar">
       <i class="fas fa-bars" id="menu-toggle"></i>
       <h1>Menu</h1>
       <img src="fcpc-logo.png" alt="fcpc-logo">
     </div>
 
-    <!-- Content Section -->
     <div class="content">
-<!-- Search and Filter -->
-<div class="search-filter">
-  <div class="search-box">
-    <input type="text" placeholder="Search">
-    <i class="fas fa-search"></i>
-  </div>
-  <button class="filter-btn"> Filter
-    <i class="fas fa-filter"></i>
-  </button>
-  <button class="add-btn">Add New Book</button>
-</div>
+      <div class="search-filter">
+        <div class="search-box">
+          <input type="text" placeholder="Search">
+          <i class="fas fa-search"></i>
+        </div>
+        <button class="filter-btn"> Filter
+          <i class="fas fa-filter"></i>
+        </button>
+        <button class="add-btn" id="openModal">Add New Book</button>
+      </div>
 
-      <!-- Table Section -->
       <div class="table-container">
         <table>
           <thead>
@@ -86,6 +90,102 @@
     </div>
   </div>
 
+    <!-- ===== Modal Add New Book ===== -->
+  <div id="bookModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Add New Book</h3>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" required>
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input list="categories" id="category" name="category" required>
+            <datalist id="categories">
+              <option value="Science">
+              <option value="Math">
+              <option value="History">
+              <option value="Technology">
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label for="accession">Accession Number</label>
+            <input type="text" id="accession" name="accession" required>
+          </div>
+          <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" id="isbn" name="isbn" required>
+          </div>
+          <div class="form-group">
+            <label for="copies">Copies</label>
+            <input type="number" id="copies" name="copies" required>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn save-btn">Save</button>
+          <button type="button" class="btn cancel-btn" id="cancelModal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <!-- ===== Modal Update Book ===== -->
+  <div id="updateBookModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Book</h3>
+        <span class="close-btn" id="closeUpdateModal">&times;</span>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="updateTitle">Title</label>
+            <input type="text" id="updateTitle" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="updateAuthor">Author</label>
+            <input type="text" id="updateAuthor" name="author" required>
+          </div>
+          <div class="form-group">
+            <label for="updateCategory">Category</label>
+            <input list="categories" id="updateCategory" name="category" required>
+            <datalist id="categories">
+              <option value="Science">
+              <option value="Math">
+              <option value="History">
+              <option value="Technology">
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label for="updateAccession">Accession Number</label>
+            <input type="text" id="updateAccession" name="accession" required>
+          </div>
+          <div class="form-group">
+            <label for="updateIsbn">ISBN</label>
+            <input type="text" id="updateIsbn" name="isbn" required>
+          </div>
+          <div class="form-group">
+            <label for="updateCopies">Copies</label>
+            <input type="number" id="updateCopies" name="copies" required>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn save-btn">Save</button>
+          <button type="button" class="btn cancel-btn" id="cancelUpdateModal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script>
     // Sidebar toggle
     const sidebar = document.getElementById("sidebar");
@@ -94,6 +194,54 @@
     toggleBtn.addEventListener("click", () => {
       sidebar.classList.toggle("collapsed");
     });
+
+    // Dropdown toggle
+    const accountToggle = document.getElementById("account-toggle");
+    const accountSubmenu = document.getElementById("account-submenu");
+
+    accountToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      accountSubmenu.classList.toggle("open");
+    });
+
+    // Add New Book Modal functionality
+    const addModal = document.getElementById("bookModal");
+    const openModal = document.getElementById("openModal");
+    const closeModal = document.getElementById("closeModal");
+    const cancelModal = document.getElementById("cancelModal");
+
+    // Event listeners to open and close the 'Add' modal
+    openModal.onclick = () => addModal.classList.add("show");
+    closeModal.onclick = () => addModal.classList.remove("show");
+    cancelModal.onclick = () => addModal.classList.remove("show");
+
+    // Update Book Modal functionality
+    const updateModal = document.getElementById("updateBookModal");
+    // Select all buttons with the class 'update-btn'
+    const openUpdateModalBtns = document.querySelectorAll(".update-btn");
+    const closeUpdateModalBtn = document.getElementById("closeUpdateModal");
+    const cancelUpdateModalBtn = document.getElementById("cancelUpdateModal");
+
+    // Loop through each 'update' button and attach an event listener to open the modal
+    openUpdateModalBtns.forEach(btn => {
+      btn.onclick = () => updateModal.classList.add("show");
+    });
+
+    // Event listeners to close the 'Update' modal
+    closeUpdateModalBtn.onclick = () => updateModal.classList.remove("show");
+    cancelUpdateModalBtn.onclick = () => updateModal.classList.remove("show");
+
+    // Event listener to close either modal when clicking outside of it
+    window.onclick = (event) => {
+      if (event.target === addModal) {
+        addModal.classList.remove("show");
+      }
+      if (event.target === updateModal) {
+        updateModal.classList.remove("show");
+      }
+    };
   </script>
+
 </body>
+
 </html>
