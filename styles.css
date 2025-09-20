@@ -11,6 +11,7 @@ body {
 /* ---------- Topbar ---------- */
 .topbar {
   display: flex;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   align-items: center;
   gap: 12px;
   background: #fff;
@@ -155,3 +156,4 @@ body {
   margin: auto;          /* Center canvas vertically/horizontally */
   display: block;
 }
+
