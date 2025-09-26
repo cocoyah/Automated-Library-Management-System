@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("bg.jpg") no-repeat center center/cover;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 1, 77, 0.7);
+}
+
+.login-card {
+    position: relative;
+    background: rgba(255, 255, 255);
+    padding: 40px 32px;
+    border-radius: 12px;
+    width: 340px;
+    text-align: center;
+    z-index: 1;
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+.login-card h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: rgba(3, 3, 111);
+    font-family: "Spectral SC";
+}
+
+.login-card h2 {
+    margin: 6px 0 32px;
+    font-size: 0.99rem;
+    font-weight: 100;
+    color: #ffcc00;
+    font-family: "Spectral SC";
+}
+
+.input {
+    width: 100%;
+    padding: 14px 45px 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border-color: #4f8cff;
+    box-shadow: 0 0 0 2px rgba(79, 140, 255, 0.15);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.toggle-pass {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-95%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 6px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(253, 203, 10);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 14px;
+    color: rgba(1, 1, 77);
+}
+
+.btn:hover {
+    background: rgb(227, 182, 0);
+}
+
+.login-card a {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: #4f8cff;
+    text-decoration: none;
+}
+
+.login-card a:hover {
+    text-decoration: underline;
+}
+
+
